@@ -34,6 +34,14 @@ trait HasNotificationMessage
     }
 
     /**
+     * @return bool
+     */
+    public function hasNotificationMessage()
+    {
+        return is_object($this->getNotificationMessage());
+    }
+
+    /**
      * Instances the Notigication Record
      *
      * @return void

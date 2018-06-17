@@ -2,6 +2,7 @@
 
 namespace ByTIC\Notifier\Notifications;
 
+use ByTIC\Notifier\Messages\Builder\EmailBuilder;
 use ByTIC\Notifier\Notifications\Traits\HasEventTrait;
 use ByTIC\Notifier\Notifications\Traits\HasNotificationMessage;
 
@@ -21,9 +22,23 @@ class Notification extends \ByTIC\Notifications\Notification
     public function generateMessageBuilder($type = 'mail')
     {
         $builder = parent::generateMessageBuilder($type);
+
         if ($this->hasEvent()) {
             $builder->setItem($this->getEvent()->getModel());
         }
+
+        if ($this->hasNotificationMessage()) {
+            $builder->setNotificationMessage($this->getNotificationMessage());
+        }
+
         return $builder;
+    }
+
+    /** @noinspection PhpMissingParentCallCommonInspection
+     * @return string
+     */
+    public function generateMailBuilderClass()
+    {
+        return EmailBuilder::class;
     }
 }

@@ -19,12 +19,16 @@ class NotificationFactory
      */
     public static function createFromRecipient($recipient, $params = [])
     {
-        return static::create(
+        $notification = static::create(
             $recipient->getTopic()->getTarget(),
             $recipient->getTopic()->getTrigger(),
             $recipient->getRecipient(),
             $params
         );
+        if (method_exists($notification, 'setRecipient')) {
+            $notification->setRecipient($recipient);
+        }
+        return $notification;
     }
 
     /**

@@ -12,7 +12,6 @@ use Nip\Records\Locator\ModelLocator;
  */
 trait HasNotificationMessage
 {
-
     /**
      * Notification Message
      *
@@ -67,18 +66,4 @@ trait HasNotificationMessage
             'email'
         );
     }
-
-//    /**
-//     * @param EmailBuilder $message
-//     * @return mixed
-//     */
-//    protected function populateEmailMessage($message)
-//    {
-//        $message->setNotification($this);
-//        $model = $this->getEvent() ? $this->getEvent()->getModel() : null;
-//        if ($model) {
-//            $message->setItem($model);
-//        }
-//        return $message;
-//    }
 }

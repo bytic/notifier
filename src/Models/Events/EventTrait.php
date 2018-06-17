@@ -33,7 +33,7 @@ trait EventTrait
     public function send()
     {
         try {
-            $this->sendToAll();
+            $this->sendToDispatcher();
         } catch (NotificationRecipientModelNotFoundException $exception) {
             $this->updateStatus('skipped');
 
@@ -52,13 +52,21 @@ trait EventTrait
      * @throws NotificationModelNotFoundException
      * @throws NotificationRecipientModelNotFoundException
      */
-    protected function sendToAll()
+    protected function sendToDispatcher()
     {
         $recipients = $this->getTopic()->getRecipients();
         foreach ($recipients as $recipient) {
             /** @var RecipientTrait $recipient */
             $recipient->sendEvent($this);
         }
+    }
+
+    /**
+     * @return RecipientTrait[]
+     */
+    public function getRecipients()
+    {
+        return $this->getTopic()->getRecipients();
     }
 
     /**

@@ -9,7 +9,6 @@ use ByTIC\Notifier\Models\Events\EventTrait as Event;
 use ByTIC\Notifier\Models\Recipients\Types\AbstractType;
 use ByTIC\Notifier\Models\Topics\TopicTrait as Topic;
 use ByTIC\Notifier\Models\Messages\MessageTrait as Message;
-use ByTIC\Notifier\Notification;
 use ByTIC\Notifier\Models\Messages\MessagesTrait as Messages;
 use Nip\Records\Record;
 use Nip\Records\RecordManager as Records;
@@ -34,20 +33,6 @@ trait RecipientTrait
     protected $recipientManager = null;
 
     /**
-     * @param Event $event
-     * @return bool
-     * @throws NotificationModelNotFoundException
-     * @throws NotificationRecipientModelNotFoundException
-     */
-    public function sendEvent($event)
-    {
-        if ($this->isActive()) {
-            return $this->getType()->sendEvent($event);
-        }
-        return true;
-    }
-
-    /**
      * @return string
      */
     public function getRecipient()
@@ -64,38 +49,33 @@ trait RecipientTrait
     }
 
     /**
-     * @param Event|null $event
-     * @return Notification
+     * @param $event
+     * @return \ByTIC\Notifications\Notifiable[]
+     * @throws NotificationRecipientModelNotFoundException
+     * @throws NotificationModelNotFoundException
      */
-    public function generateNotification($event = null)
+    public function generateNotifiablesForEvent($event)
     {
-        $class = $this->generateNotificationName();
-        /** @var Notification $notification */
-        $notification = new $class($event);
-        return $notification;
-    }
+        $notifiableModels = $this->getRecipientModelFromEvent($event);
+        if ($notifiableModels) {
+            /** @var IsRecipientTrait $notifiableModels */
+            return $notifiableModels->generateNotifiables();
+        }
 
-    /**
-     * @return string
-     */
-    public function generateNotificationName()
-    {
-        return $this->getManager()::generateNotificationName(
-            $this->getRecipient(),
-            $this->getTopic()->getTarget(),
-            $this->getTopic()->getTrigger()
+        throw new NotificationRecipientModelNotFoundException(
+            "No model found in recipient" . $this->getRecipient() . " from notification event [" . $event->id . "]"
         );
     }
 
     /**
-     * @param Notification $notification
+     * @param Event $event
      * @return RecipientTrait
      * @throws NotificationModelNotFoundException
      */
-    public function getModelFromNotification($notification)
+    public function getRecipientModelFromEvent($event)
     {
         $method = $this->generateRecipientGetterMethod();
-        $model = $notification->getEvent()->getModel();
+        $model = $event->getModel();
         if ($model instanceof Record) {
             return $model->$method();
         }

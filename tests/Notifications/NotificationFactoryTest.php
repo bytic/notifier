@@ -2,8 +2,10 @@
 
 namespace ByTIC\Notifier\Tests\Notifications;
 
+use ByTIC\Notifications\Notification;
 use ByTIC\Notifier\Notifications\NotificationFactory;
 use ByTIC\Notifier\Tests\AbstractTest;
+use ByTIC\Notifier\Tests\Fixtures\Library\Application;
 
 /**
  * Class NotificationFactoryTest
@@ -11,6 +13,16 @@ use ByTIC\Notifier\Tests\AbstractTest;
  */
 class NotificationFactoryTest extends AbstractTest
 {
+
+    public function testCreateWithOneParam()
+    {
+        app()->set('app', new Application());
+
+        $notification = NotificationFactory::create('fundraising-page', 'pending', 'org_supporters', ['789']);
+
+        self::assertInstanceOf(Notification::class, $notification);
+        self::assertSame($notification->param, '789');
+    }
 
     /**
      * @param $class

@@ -771,16 +771,16 @@
         },
         {
             "name": "bytic/notifications",
-            "version": "0.9.1",
+            "version": "0.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bytic/notifications.git",
-                "reference": "0f1dcd1db0641077d5a777af055153a0c58dafd8"
+                "reference": "278abb4fc2734b4dd8030742d5c88bcb4b43967d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bytic/notifications/zipball/0f1dcd1db0641077d5a777af055153a0c58dafd8",
-                "reference": "0f1dcd1db0641077d5a777af055153a0c58dafd8",
+                "url": "https://api.github.com/repos/bytic/notifications/zipball/278abb4fc2734b4dd8030742d5c88bcb4b43967d",
+                "reference": "278abb4fc2734b4dd8030742d5c88bcb4b43967d",
                 "shasum": ""
             },
             "require": {
@@ -812,7 +812,7 @@
             ],
             "description": "Notifications module for bytic library",
             "homepage": "https://github.com/ByTIC/notifications",
-            "time": "2018-06-15T20:01:45+00:00"
+            "time": "2018-06-17T12:26:20+00:00"
         },
         {
             "name": "bytic/orm",

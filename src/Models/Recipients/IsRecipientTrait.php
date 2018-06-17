@@ -2,7 +2,7 @@
 
 namespace ByTIC\Notifier\Models\Recipients;
 
-use ByTIC\Notifier\Notifiable;
+use ByTIC\Notifications\Notifiable;
 
 /**
  * Trait IsRecipientTrait

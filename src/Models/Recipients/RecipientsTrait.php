@@ -15,22 +15,6 @@ trait RecipientsTrait
     use RecordsTrait;
 
     /**
-     * @param $recipient
-     * @param $target
-     * @param $trigger
-     * @return string
-     */
-    public static function generateNotificationName($recipient, $target, $trigger)
-    {
-        $name = self::instance()->getRootNamespace();
-        $name .= inflector()->pluralize(inflector()->classify($recipient));
-        $name .= '\Notifications\\';
-        $name .= inflector()->pluralize(inflector()->classify($target)) . '\\';
-        $name .= ucfirst($trigger);
-        $name .= 'Notification';
-        return $name;
-    }
-    /**
      * Returns the target name from model instance
      *
      * @param Record $model Model Record instance

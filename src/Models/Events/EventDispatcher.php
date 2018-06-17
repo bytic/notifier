@@ -59,6 +59,11 @@ class EventDispatcher
     {
         if ($recipient->isActive()) {
             $notification = NotificationFactory::createFromRecipient($recipient);
+
+            if (method_exists($notification, 'setEvent')) {
+                $notification->setEvent($this->getEvent());
+            }
+
             $notifiables = $recipient->generateNotifiablesForEvent($this->getEvent());
             $this->sendNotification($notifiables, $notification);
         }
@@ -76,7 +81,7 @@ class EventDispatcher
     /**
      * @return EventTrait
      */
-    public function getEvent(): EventTrait
+    public function getEvent()
     {
         return $this->event;
     }

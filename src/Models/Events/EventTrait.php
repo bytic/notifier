@@ -54,11 +54,7 @@ trait EventTrait
      */
     protected function sendToDispatcher()
     {
-        $recipients = $this->getTopic()->getRecipients();
-        foreach ($recipients as $recipient) {
-            /** @var RecipientTrait $recipient */
-            $recipient->sendEvent($this);
-        }
+        EventDispatcher::create($this)->dispatch();
     }
 
     /**

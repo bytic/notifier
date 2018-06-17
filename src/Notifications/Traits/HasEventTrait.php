@@ -33,9 +33,18 @@ trait HasEventTrait
     }
 
     /**
-//     * @return EmailBuilder
-//     * @throws NotificationModelNotFoundException
-//     */
+     * @return bool
+     */
+    public function hasEvent()
+    {
+        return is_object($this->event)
+            && in_array('ByTIC\Notifier\Models\Events\EventTrait', class_uses($this->event));
+    }
+
+    /**
+     * //     * @return EmailBuilder
+     * //     * @throws NotificationModelNotFoundException
+     * //     */
 //    public function generateEmailMessage()
 //    {
 //        $class = $this->generateEmailMessageClass();

@@ -15,7 +15,6 @@ class OrgSupportersNotification extends \ByTIC\Notifications\Notification
      */
     public function __construct($param = null)
     {
-        parent::__construct();
         $this->param = $param;
     }
 }

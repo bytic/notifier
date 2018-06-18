@@ -33,6 +33,7 @@ class NotificationFactoryTest extends AbstractTest
      */
     public function testGenerateNotificationName($class, $target, $trigger, $recipient)
     {
+        app()->set('app', new Application());
         self::assertSame($class, NotificationFactory::generateNotificationName($target, $trigger, $recipient));
     }
 
@@ -43,7 +44,7 @@ class NotificationFactoryTest extends AbstractTest
     {
         return [
             [
-                'App\Notifications\Fundraising_Pages\Pending\OrgSupportersNotification',
+                'ByTIC\Notifier\Tests\Fixtures\Notifications\Fundraising_Pages\Pending\OrgSupportersNotification',
                 'fundraising-page',
                 'pending',
                 'org_supporters'

@@ -16,22 +16,28 @@ use Mockery as m;
  */
 class RecipientTraitTest extends AbstractTest
 {
-    public function testSend()
+    public function testIsActive()
     {
         $recipient = new Recipient();
-
-        $type = m::mock(Single::class)
-            ->shouldReceive('sendEvent')->andReturn(1);
-
-        $recipients = m::mock(Recipients::class)
-            ->shouldReceive('getType')->andReturn($type);
-        $recipient->setManager($recipients);
-
-        $event = new Event();
-
-        $result = $recipient->sendEvent($event);
-        self::assertTrue($result);
+        self::assertFalse($recipient->isActive());
     }
+
+//    public function testSend()
+//    {
+//        $recipient = new Recipient();
+//
+//        $type = m::mock(Single::class)
+//            ->shouldReceive('sendEvent')->andReturn(1);
+//
+//        $recipients = m::mock(Recipients::class)
+//            ->shouldReceive('getType')->andReturn($type);
+//        $recipient->setManager($recipients);
+//
+//        $event = new Event();
+//
+//        $result = $recipient->sendEvent($event);
+//        self::assertTrue($result);
+//    }
 
 //    public function testGenerateNotificationName()
 //    {

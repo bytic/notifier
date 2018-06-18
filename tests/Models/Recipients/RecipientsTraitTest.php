@@ -23,19 +23,6 @@ class RecipientsTraitTest extends AbstractTest
     }
 
     /**
-     * @param $notification
-     * @param $recipient
-     * @param $target
-     * @param $trigger
-     *
-     * @dataProvider generateNotificationNameData
-     */
-    public function testGenerateNotificationName($notification, $recipient, $target, $trigger)
-    {
-        self::assertSame($notification, Recipients::generateNotificationName($recipient, $target, $trigger));
-    }
-
-    /**
      * @return array
      */
     public function generateNotificationNameData()

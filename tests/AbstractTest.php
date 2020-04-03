@@ -2,6 +2,7 @@
 
 namespace ByTIC\Notifier\Tests;
 
+use Mockery;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -10,4 +11,11 @@ use PHPUnit\Framework\TestCase;
 abstract class AbstractTest extends TestCase
 {
     protected $object;
+
+    public function tearDown()
+    {
+        parent::tearDown();
+
+        Mockery::close();
+    }
 }

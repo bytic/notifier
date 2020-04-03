@@ -6,10 +6,12 @@ use ByTIC\Common\Records\Traits\HasTypes\RecordTrait;
 use ByTIC\Notifier\Exceptions\NotificationModelNotFoundException;
 use ByTIC\Notifier\Exceptions\NotificationRecipientModelNotFoundException;
 use ByTIC\Notifier\Models\Events\EventTrait as Event;
+use ByTIC\Notifier\Models\Messages\MessagesTrait;
 use ByTIC\Notifier\Models\Recipients\Types\AbstractType;
 use ByTIC\Notifier\Models\Topics\TopicTrait as Topic;
 use ByTIC\Notifier\Models\Messages\MessageTrait as Message;
 use ByTIC\Notifier\Models\Messages\MessagesTrait as Messages;
+use Nip\Records\Locator\ModelLocator;
 use Nip\Records\Record;
 use Nip\Records\RecordManager as Records;
 
@@ -91,6 +93,7 @@ trait RecipientTrait
      */
     public function getNotificationMessage($channel = 'email')
     {
+        /** @var MessagesTrait $messagesTable */
         $messagesTable = ModelLocator::get('Notifications\Messages');
         return $messagesTable::getGlobal(
             $this->id_topic,

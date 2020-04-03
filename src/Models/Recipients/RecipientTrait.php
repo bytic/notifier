@@ -91,7 +91,8 @@ trait RecipientTrait
      */
     public function getNotificationMessage($channel = 'email')
     {
-        return Messages::getGlobal(
+        $messagesTable = ModelLocator::get('Notifications\Messages');
+        return $messagesTable::getGlobal(
             $this->id_topic,
             $this->getRecipient(),
             $channel

@@ -15,7 +15,7 @@ class NotificationFactory
     /**
      * @param RecipientTrait $recipient
      * @param array $params
-     * @return mixed
+     * @return Notification
      */
     public static function createFromRecipient($recipient, $params = [])
     {

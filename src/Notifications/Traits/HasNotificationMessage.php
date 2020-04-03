@@ -33,6 +33,14 @@ trait HasNotificationMessage
     }
 
     /**
+     * @param Message $notificationMessage
+     */
+    public function setNotificationMessage($notificationMessage)
+    {
+        $this->notificationMessage = $notificationMessage;
+    }
+
+    /**
      * @return bool
      */
     public function hasNotificationMessage()
@@ -47,7 +55,7 @@ trait HasNotificationMessage
      */
     protected function initNotificationMessage()
     {
-        $this->notificationMessage = $this->generateNotificationMessage();
+        $this->setNotificationMessage($this->generateNotificationMessage());
     }
 
     /**

@@ -18,17 +18,17 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "ByTIC\\Notifier\\Tests\\": "tests/",
+      "ByTIC\\Notifier\\Tests\\": "tests/src",
       "ByTIC\\Notifier\\Tests\\Fixtures\\": "tests/fixtures"
     }
   },
   "require": {
-    "php": "^7.0",
-    "bytic/notifications": "^0.9",
-    "bytic/orm": "^0.9"
+    "php": "^7.2",
+    "bytic/notifications": "^0.9|^1.0",
+    "bytic/orm": "^0.9|^1.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^6.5|^7.0|^8.0",
+    "phpunit/phpunit": "^7.0|^8.0|^9.0",
     "mockery/mockery": "^1.1"
   }
 }

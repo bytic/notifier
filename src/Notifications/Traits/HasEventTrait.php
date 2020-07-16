@@ -3,6 +3,7 @@
 namespace ByTIC\Notifier\Notifications\Traits;
 
 use ByTIC\Notifier\Models\Events\EventTrait as Event;
+use Nip\Utility\Oop;
 
 /**
  * Trait HasEventTrait
@@ -38,7 +39,7 @@ trait HasEventTrait
     public function hasEvent()
     {
         return is_object($this->event)
-            && in_array('ByTIC\Notifier\Models\Events\EventTrait', class_uses($this->event));
+            && in_array(\ByTIC\Notifier\Models\Events\EventTrait::class, Oop::uses($this->event));
     }
 
     /**

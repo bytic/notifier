@@ -3,6 +3,7 @@
 namespace ByTIC\Notifier\Notifications\Traits;
 
 use ByTIC\Notifier\Models\Recipients\RecipientTrait as Recipient;
+use Nip\Utility\Oop;
 
 /**
  * Trait HasEventTrait
@@ -37,7 +38,7 @@ trait HasRecipientTrait
     public function hasRecipient()
     {
         return is_object($this->recipient)
-            && in_array('ByTIC\Notifier\Models\Recipients\RecipientTrait', class_uses($this->recipient));
+            && in_array(\ByTIC\Notifier\Models\Recipients\RecipientTrait::class, Oop::uses($this->event));
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace ByTIC\Notifier\Models\Events\Statuses;
 
-use ByTIC\Common\Records\Properties\Statuses\Generic;
+use \ByTIC\Models\SmartProperties\Properties\Types\Generic;
 
 /**
  * Class AbstractStatus

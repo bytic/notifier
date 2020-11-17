@@ -2,7 +2,7 @@
 
 namespace ByTIC\Notifier\Models\Recipients\Types;
 
-use ByTIC\Common\Records\Properties\Types\Generic;
+use \ByTIC\Models\SmartProperties\Properties\Types\Generic;
 use ByTIC\Notifier\Exceptions\NotificationModelNotFoundException;
 use ByTIC\Notifier\Exceptions\NotificationRecipientModelNotFoundException;
 use ByTIC\Notifier\ChannelManager;

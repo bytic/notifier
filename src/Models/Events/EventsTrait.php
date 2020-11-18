@@ -10,17 +10,16 @@ use Nip\Utility\Traits\SingletonTrait;
  */
 trait EventsTrait
 {
-    use \ByTIC\Common\Records\Traits\HasStatus\RecordsTrait;
+    use \ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordsTrait;
     use SingletonTrait;
 
     /**
-     * @param array $params
+     * @inheritDoc
      */
     protected function injectParams(&$params = [])
     {
         $params['order'][] = ['id', 'ASC'];
 
-        /** @noinspection PhpUndefinedClassInspection */
         parent::injectParams($params);
     }
 

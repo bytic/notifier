@@ -33,6 +33,7 @@ trait TopicTrait
     {
         /** @var Event $event */
         $event = ModelLocator::get('Notifications\Events')->getNew();
+        $event->status = 'pending';
         $event->populateFromTopic($this);
         $event->populateFromModel($model);
         $event->save();

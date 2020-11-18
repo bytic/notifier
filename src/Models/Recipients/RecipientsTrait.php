@@ -2,7 +2,6 @@
 
 namespace ByTIC\Notifier\Models\Recipients;
 
-use ByTIC\Common\Records\Traits\HasTypes\RecordsTrait;
 use Nip\Records\AbstractModels\Record;
 
 /**
@@ -12,7 +11,7 @@ use Nip\Records\AbstractModels\Record;
 trait RecipientsTrait
 {
     use \Nip\Utility\Traits\SingletonTrait;
-    use RecordsTrait;
+    use \ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordsTrait;
 
     /**
      * Returns the target name from model instance

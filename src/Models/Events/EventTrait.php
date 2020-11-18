@@ -20,7 +20,7 @@ use Nip\Records\AbstractModels\Record;
  */
 trait EventTrait
 {
-    use \ByTIC\Common\Records\Traits\HasStatus\RecordTrait;
+    use \ByTIC\Models\SmartProperties\RecordsTraits\HasStatus\RecordTrait;
 
     /**
      * @var null|Record

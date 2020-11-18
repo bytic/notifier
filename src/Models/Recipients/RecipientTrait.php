@@ -2,15 +2,13 @@
 
 namespace ByTIC\Notifier\Models\Recipients;
 
-use ByTIC\Common\Records\Traits\HasTypes\RecordTrait;
 use ByTIC\Notifier\Exceptions\NotificationModelNotFoundException;
 use ByTIC\Notifier\Exceptions\NotificationRecipientModelNotFoundException;
 use ByTIC\Notifier\Models\Events\EventTrait as Event;
 use ByTIC\Notifier\Models\Messages\MessagesTrait;
+use ByTIC\Notifier\Models\Messages\MessageTrait as Message;
 use ByTIC\Notifier\Models\Recipients\Types\AbstractType;
 use ByTIC\Notifier\Models\Topics\TopicTrait as Topic;
-use ByTIC\Notifier\Models\Messages\MessageTrait as Message;
-use ByTIC\Notifier\Models\Messages\MessagesTrait as Messages;
 use Nip\Records\Locator\ModelLocator;
 use Nip\Records\Record;
 use Nip\Records\RecordManager as Records;
@@ -30,22 +28,22 @@ use Nip\Records\RecordManager as Records;
  */
 trait RecipientTrait
 {
-    use RecordTrait;
+    use \ByTIC\Models\SmartProperties\RecordsTraits\HasTypes\RecordTrait;
 
     protected $recipientManager = null;
 
     /**
      * @return string
      */
-    public function getRecipient()
+    public function getRecipient(): string
     {
-        return $this->recipient;
+        return (string) $this->getPropertyRaw('recipient');
     }
 
     /**
      * @return bool
      */
-    public function isActive()
+    public function isActive(): bool
     {
         return $this->active == 'yes';
     }
@@ -116,7 +114,7 @@ trait RecipientTrait
     /**
      * @return Records
      */
-    public function generateRecipientManager()
+    public function generateRecipientManager(): Records
     {
         return $this->getManager()::getRecipientManager($this->getRecipient());
     }
@@ -124,7 +122,7 @@ trait RecipientTrait
     /**
      * @return string
      */
-    public function generateRecipientGetterMethod()
+    public function generateRecipientGetterMethod(): string
     {
         return $this->getManager()::generateRecipientGetterMethod($this->getRecipient());
     }

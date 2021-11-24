@@ -26,7 +26,7 @@
     }
   },
   "require": {
-    "php": "^7.2",
+    "php": "^7.2|^8.0",
     "bytic/mail": "^1.0",
     "symfony/notifier": "^5.0",
     "bytic/orm": "^0.9|^1.0",

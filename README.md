@@ -10,3 +10,7 @@ notifications component for bytic library
 [![Quality Score](https://img.shields.io/scrutinizer/g/bytic/notifier.svg?style=flat-square)](https://scrutinizer-ci.com/g/bytic/notifier)
 [![StyleCI](https://styleci.io/repos/137596419/shield?branch=master)](https://styleci.io/repos/137596419)
 [![Total Downloads](https://img.shields.io/packagist/dt/bytic/notifier.svg?style=flat-square)](https://packagist.org/packages/bytic/notifier)
+
+
+### Inspiration
+* https://github.com/fazland/Notifire

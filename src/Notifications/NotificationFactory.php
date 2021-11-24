@@ -3,7 +3,6 @@
 namespace ByTIC\Notifier\Notifications;
 
 use ByTIC\Notifications\Notification;
-use ByTIC\Notifier\Models\Recipients\RecipientTrait;
 use Nip\Container\Container;
 
 /**
@@ -12,24 +11,6 @@ use Nip\Container\Container;
  */
 class NotificationFactory
 {
-    /**
-     * @param RecipientTrait $recipient
-     * @param array $params
-     * @return Notification
-     */
-    public static function createFromRecipient($recipient, $params = [])
-    {
-        $notification = static::create(
-            $recipient->getTopic()->getTarget(),
-            $recipient->getTopic()->getTrigger(),
-            $recipient->getRecipient(),
-            $params
-        );
-        if (method_exists($notification, 'setRecipient')) {
-            $notification->setRecipient($recipient);
-        }
-        return $notification;
-    }
 
     /**
      * @param $target

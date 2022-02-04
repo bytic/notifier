@@ -90,7 +90,7 @@ abstract class EmailBuilder extends GenericBuilder
     protected function hydrateEmail($email)
     {
         $notifiable = $this->getNotifiable();
-        if (method_exists($notifiable, 'routeNotificationFor')) {
+        if (is_object($notifiable) && method_exists($notifiable, 'routeNotificationFor')) {
             $email->to = $this->getNotifiable()->routeNotificationFor('mail');
         }
         return parent::hydrateEmail($email);

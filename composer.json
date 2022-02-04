@@ -1,40 +1,41 @@
 {
   "name": "bytic/notifier",
-  "type": "library",
-  "license": "MIT",
   "description": "notifier module for bytic library",
-  "keywords": [  ],
-  "homepage": "https://github.com/bytic/notifier",
+  "license": "MIT",
+  "type": "library",
+  "keywords": [],
   "authors": [
     {
       "name": "Gabriel Solomon",
       "email": "hello@gabrielsolomon.ro"
     }
   ],
+  "homepage": "https://github.com/bytic/notifier",
+  "require": {
+    "php": "^7.2 || ^8.0",
+    "bytic/mail": "^1.0",
+    "bytic/models-smart-properties": "^1.0",
+    "bytic/orm": "^0.9 || ^1.0",
+    "bytic/package-base": "^1.0",
+    "symfony/notifier": "^5.0"
+  },
+  "require-dev": {
+    "bytic/phpqatools": "^1.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": false,
   "autoload": {
-    "classmap": [
-      "legacy"
-    ],
     "psr-4": {
       "ByTIC\\Notifier\\": "src/"
-    }
+    },
+    "classmap": [
+      "legacy"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
       "ByTIC\\Notifier\\Tests\\": "tests/src",
       "ByTIC\\Notifier\\Tests\\Fixtures\\": "tests/fixtures"
     }
-  },
-  "require": {
-    "php": "^7.2|^8.0",
-    "symfony/notifier": "^5.0",
-    "bytic/package-base": "^1.0",
-    "bytic/mail": "^1.0",
-    "bytic/orm": "^0.9|^1.0",
-    "bytic/models-smart-properties": "^1.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^7.0|^8.0|^9.0",
-    "mockery/mockery": "^1.1"
   }
 }

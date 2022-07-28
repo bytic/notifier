@@ -6,7 +6,7 @@ namespace ByTIC\Notifier\Tests\Fixtures\Library;
  * Class Application
  * @package ByTIC\Notifier\Tests\Fixtures\Library
  */
-class Application extends \ByTIC\Common\Library\Application
+class Application extends \Nip\Application\Application
 {
 
     /**

@@ -17,9 +17,12 @@
     "bytic/models-smart-properties": "^1.0",
     "bytic/orm": "^0.9 || ^1.0",
     "bytic/package-base": "^1.0",
-    "symfony/notifier": "^5.0"
+    "symfony/notifier": "^5.0||^6.0"
   },
   "require-dev": {
+    "bytic/application": "^1.0||^2.0",
+    "bytic/dispatcher": "^1.0||^2.0",
+    "bytic/staging": "^1.0||^2.0",
     "bytic/phpqatools": "^1.0"
   },
   "minimum-stability": "dev",
@@ -36,6 +39,14 @@
     "psr-4": {
       "ByTIC\\Notifier\\Tests\\": "tests/src",
       "ByTIC\\Notifier\\Tests\\Fixtures\\": "tests/fixtures"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "ergebnis/composer-normalize": true,
+      "phpstan/extension-installer": true,
+      "bytic/phpqatools": true
     }
   }
 }

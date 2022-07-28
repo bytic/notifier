@@ -3,8 +3,7 @@
 namespace ByTIC\Notifications\Messages\Builder;
 
 use ByTIC\Common\Records\Emails\EmailTrait;
-use ByTIC\Common\Records\Emails\Builder\ViewBuilder as GenericBuilder;
-use ByTIC\Notifications\Notifications\AbstractNotification as Notification;
+use ByTIC\Notifications\Messages\Builder\EmailTemplateBuilder as GenericBuilder;
 use ByTIC\Notifications\Notifiable;
 use Nip\Records\AbstractModels\Record;
 use Nip\Records\Locator\ModelLocator;

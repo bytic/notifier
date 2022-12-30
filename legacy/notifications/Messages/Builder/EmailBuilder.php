@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Notifications\Messages\Builder;
 
 use ByTIC\Common\Records\Emails\EmailTrait;
-use ByTIC\Notifications\Messages\Builder\EmailTemplateBuilder as GenericBuilder;
+use ByTIC\Notifications\Messages\Builder\ViewBuilder as GenericBuilder;
 use ByTIC\Notifications\Notifiable;
 use Nip\Records\AbstractModels\Record;
 use Nip\Records\Locator\ModelLocator;

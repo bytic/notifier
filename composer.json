@@ -14,10 +14,10 @@
   "require": {
     "php": "^7.2 || ^8.0",
     "bytic/mail": "^1.0",
-    "bytic/models-smart-properties": "^1.0",
-    "bytic/orm": "^0.9 || ^1.0",
-    "bytic/package-base": "^1.0",
-    "symfony/notifier": "^5.0||^6.0"
+    "bytic/models-smart-properties": "^1.0||^2.0",
+    "bytic/orm": "^0.9 || ^1.0 || ^2.0",
+    "bytic/package-base": "^1.0 || ^2.0",
+    "symfony/notifier": "^5.0||^6.0 || ^7.0"
   },
   "require-dev": {
     "bytic/application": "^1.0||^2.0",
